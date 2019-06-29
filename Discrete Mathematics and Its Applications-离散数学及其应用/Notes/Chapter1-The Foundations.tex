@@ -1,0 +1,235 @@
+\documentclass[none,green,normal,cn]{elegantnote}
+
+\title{Chapter 1\\The Foundations:\ Logic and Proofs}
+\author{\href{https://github.com/mrxgavin}{Xu Zi Kang}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Propositional Logic}
+The material on logical connectives is straightforward. Most difficulties with this material involve confusion between common English usage and precise mathematical definitons.
+\subsection{Gist:}
+\textbf{Proposition:} A \emph{\textbf{declarative}} sentence that is \emph{eith true of false}, but not both.
+
+\emph{\textbf{Statements that can not be decided is not a proposition}}
+
+Propositional/Statement variable: \textbf{p, q, r, s} \ ; Truth value: \textbf{T, F}
+
+Propositional Calculus/Logic: The area of logic that deals with propositions
+
+Compound proposition: Proposition formed from existing propositions using operators.
+
+
+\textbf{Operators:}
+\begin{itemize}
+\item Not: $\neg p$. \qquad e.g. It is not the case that$\cdots$
+\item Conjunction/And: $p \wedge q$. \qquad e.g. $\cdots$ and/but $\cdots$
+\item Disjunction/or: $p \vee q$. \qquad e.g. $\cdots$ or $\cdots$
+\item Exclusive or: $p \oplus q$.
+\item Conditional Statement/Implication: $p \rightarrow q$.
+      \begin{itemize}
+        \item if p, then q
+        \item p only if q
+        \item p implies q
+        \item q is a sufficient condition for q
+        \item q is a necessary condition for p
+        \item q follows from/if/when/whenever p
+        \item q unless $\neg p$
+        \\ \emph{False only when p is true, but q is false; when p is false, $p \rightarrow q$ is defined to be true.}
+        \item \textbf{Converse}: $p \rightarrow q$ to $q \rightarrow p$
+        \item \textbf{Inverse}: \(p \rightarrow q\) to \(\neg p \rightarrow \neg q\)
+        \item \textbf{Contrapositive}: Converse and inverse. \(p \rightarrow q to \neg q \rightarrow \neg p\)
+      \end{itemize}
+\item Biconditional statement: \(p \leftrightarrow\ q\).
+      \begin{itemize}
+        \item p if and only if q
+        \item p is necessary and sufficient for q
+        \item if p then q, and conversely
+        \item p iff q
+        \\ \emph{\(p \leftrightarrow q \) == \((q \rightarrow p)\), only true when p and q have the same value}
+      \end{itemize}
+\end{itemize}
+
+\section{Applications of Propositional Logic}
+Intorduced some important applications of propositional logic, including many important applications in computer science.
+\subsection{Advice:}
+See Example 7, which introduces one of Raymond Smullyan's knights and knaves puzzles.
+\subsection{Gist:}
+\textbf{Consistent system specification:} 
+\begin{itemize}
+  \item no conflicting requirements;
+  \item a set of value to satisfy all the statements translated;
+  \item does not necessarily has a real usage;
+\end{itemize}
+
+\section{Propositional equivalences}
+Showed how propositional equivalences are established and to introduce the most important such equivalences
+\subsection{Advice:}
+Introduce the notion of propositional equivalences by establishing De Morgan's laws--see Example 2, Table 6 presents basic propositional equivalences.
+We will see similar tables for set identities in Section 2.2 and for Boolean algebra in Section 12.1.
+Mention that these properties hold in a wide variety of seetings that all fit into one abstract form.
+\subsection{Gist:}
+Classification of compound proposition
+\begin{itemize}
+  \item Tautology \qquad Always true
+  \item Contradiction \qquad Always false
+  \item Contingency \qquad Neither a tautology nor a Contradiction
+\end{itemize}
+\textbf{Logical Equivalence:}Compound propositions that have the same truth values in all possible cases
+\(p \leftrightarrow q\) is a tautology
+\(p \equiv q, p \Leftrightarrow q\)
+\subsection{Locial Equivalences:}
+\begin{tabular}{|c|c|}
+  \toprule
+  Equivalence & Name\\
+  \midrule
+  \(p \wedge T \equiv p\) & \\
+  \(p \vee F \equiv p\) & Identity laws\\
+  \midrule
+  \(p \vee T \equiv T\) & \\
+  \(p \wedge F \equiv F\) & Domination laws\\
+  \midrule
+  \(p \vee p \equiv p\)& \\
+  \(p \wedge p \equiv p\) & Idempotent laws\\
+  \midrule
+  \(\neg(\neg p) \equiv p\) & Double negation law\\
+  \midrule
+  \(p \vee q \equiv q \vee p\) & \\
+  \(p \wedge q \equiv q \wedge p\) & Commutative laws\\
+  \midrule
+  \((p \vee q)\vee r \equiv p \vee (q \vee r)\) & \\
+  \((p \wedge q)\wedge r \equiv p \wedge (q \wedge r)\) & Distributive laws\\
+  \midrule
+  \(\neg(p \wedge q) \equiv \neg p \vee \neg q\) & \\
+  \(\neg(p \vee q) \equiv \neg p \wedge \neg q\) & De Morgan's laws\\
+  \midrule
+  \(p \vee (p \wedge q) \equiv p\) & \\
+  \(p \wedge (p \vee q) \equiv p\) & Absorption laws\\
+  \midrule
+  \(p \vee \neg p \equiv T\) & \\
+  \(p \wedge \neg p \equiv F\) & Neagtion laws\\
+  \midrule
+  \(p \rightarrow q \equiv \neg p \vee q\) & \\
+  \(p \leftrightarrow q \equiv (p \wedge q) \vee (\neg p \wedge \neg q)\) & Implication laws\\
+  \bottomrule
+\end{tabular}
+
+Mine: \(\neg(p \rightarrow) \equiv p \wedge \neg q\)\\
+Mine: \(p \vee (\neg p \wedge q ) \equiv p \vee q \)  \ See Section 3.1 No.30
+\textbf{Prove Logical Equivalence:} Truth table or developing a series of logical equivalences.
+\textbf{Prove Not Logically Equivalent:} (Simplify first) and find a couterexample.
+\textbf{Propositional Satisfiability:} An assignment of truth values that makes it true.
+Truth table, or whether its negation is a tautology. (or say whether itself is a Contradiction?)
+
+
+\section{Predicates and Quantifiers}
+Introduced predicate logic, especially existential and universal quantification.
+\subsection{Adivce:}
+This section is important. It's easy to have trouble proving statements that involve quantification, including the inductive step in  athematical induction.
+
+A quantification is not well-defined unless the domain is specified and that changing the domain can change the truth value of the quantification.
+Example 23 and 24 showed how to translate a particular English sentence into a logical statement; 
+Example 25 illustrates how to use Quantifiers in system specifications;
+Example 26 and 27, taken from Lewis Carroll, illustrate the subtleties of translating English sentences into correct statements involving predicate and propositional logic.
+
+\subsection{Gist:}
+\textbf{Predicate:} Statements involving variables, the variables are called subjects, the other is called a predicate.
+
+The statment of P(x) is also called the value of Propositional function P at X.
+
+\textbf{Precondition:} Conditions for valid input.
+
+\textbf{Postcondition:} Conditions for correct output.
+
+\textbf{Qualification:} Express the extent to which a predicate is true over a range of elements.
+
+{{Domain / universe} of discourse} / domain: A predicate is true for a variable in a particular domain.
+
+\textbf{Predicate calculus:} The area of logic that deals with predicates and quantifiers.
+
+\textbf{Universal qualification:} For every element \(\forall x P(x): \) For all every x P(x) \\
+\textbf{Existential qualification:} For one or more element \(\exists x P(x): \) For one or more element.\\
+Abbreviated qualifer notation: Use condition for domain. Or use \(\exists X P(x) \rightarrow Q(x)\) for using P(x) as condition for domain.
+
+Quantifiers \((\exists and \forall)\) have higher precedence than all logical operators from propositional calculus. i.e. They absorb less.
+
+Occurrence of variable is bound: Quantifier is used on the variable.
+
+All the variables that occur in a propositional function must be bound or set equal to a particular value to turn it into a proposition.
+
+Scope of quantifier: The part of a locial expression to which a quantifier is applied.\\
+The same letter is often used to represent variables bound by different quantifiers with scopres that do not overlap.\\
+Statements involving predicates and quantifiers are Logically Equivalent: 
+If and only if they have the same truth value \emph{no matter} which \textbf{predicates} are substituted into these staements and which \textbf{domain}  of discourse is used for the variables in these propositional functions.
+
+\(S \equiv T\) \\
+\(\forall x P(x) \wedge Q(x) \equiv \forall x P(x) \wedge \forall x Q(x)\)\\
+\(\exists x P(x) \vee Q(x) \equiv \exists x P(x) \wedge \exists x Q(x)\)\\
+\textbf{De Morgan's laws for quantifers:}\\
+\(\neg \forall x P(x) \equiv \exists x \neg P(x)\)\\
+\(\neg \exists x Q(x) \equiv \forall x \neg Q(x)\)\\
+
+Translating from Enlgish into Locial Expression \dots
+
+Using Quantifiers in System Specifications: \dots
+
+\section{Nested Quantifiers}
+Explained how to work with nested quantifiers and makes clear that the order of quantification matters.
+
+\subsection{Gist:}
+Nestd quantifiers : One quantifier is within the scope of another.\\
+Uderstanding Statements involving Nested Quantifers:\dots\\
+The order of the quantifiers is important, unless all the quantifiers are universal quantifiers or all are existential quantifiers.\\
+
+\section{Rules of Inference}
+Introduced the notion of a valid argument and rules of inference for propositional logic.
+Explained how to use rules of inference to build correct arguments in propositional calculus.
+Moreover, introduced rules of inference for predicate logic and how to use these rules of inference to build correct arguments in predicate logic.
+Showed how rules of inference for propositional  calculus and predicate calculus can be combined.
+
+\section{Introduction to Proofs}
+Introduced the notion of proof and basic methods of proof, including direct proof, proof by contraposition, and proof by contradiction.
+
+\subsection{Gist:}
+Theorem / Fact / Result(定理)： A statement that can be shown to be true.
+
+Propositions: Less important theorems.
+
+Axiom / Postulate (公理): Statements we assume to be true.
+
+Lemma (引理): A less important theorem that is helpful in the proof of other results. (plural lemmas or lemmata)
+
+Corollary (推论): Theorem that can be established directly from a theorem that has been proved.
+
+Conjecture (猜想): Statement that is being proposed to be a true statement.
+
+Direct Proof: Direct proof of a conditional statement \(p \rightarrow q\) is constructed when the first step is the assumption that p is true;
+
+subsequent steps are constructed using rules of inference, with the final setp showing that q must also be true.
+
+Indirect Proofs: Proofs that do not start with the premises and end with the conclusion.
+
+Proof by Contraposition(证明逆否命题): We take \(\neg q\) as a premise, and using axioms, definitions, and previously proven theorems,together with rules of inference, we show that \(\neg p\) must follow.
+
+Vacuous Proofs: If we can show that p is false, then we have a proof of the conditional statement \(p \rightarrow q\).
+
+Trivial Proof: By showing that q is true, it follows that \(p \rightarrow q\) must also be true.
+
+Proofs by Contradiction (反证): We can prove that p is true if we can show that \(\neg p \rightarrow (r \wedge \neg r)\) is true for some proposition r. i.e. r is premise and \(\neg r\) is proved if \(\neg p\).
+
+To rewrite a proof by contraposition of \(p \rightarrow q \) as a proof by contradiction, we suppose that both p and \(\neg q\) are true. Then, we use the stepf from the proof of \(\neg q \rightarrow \neg p\) to show that \(\neg p \) is true.
+
+Proofs of Equivalence: \((p \leftrightarrow q) \leftrightarrow (p \rightarrow q) \wedge (q \rightarrow p)\).(if and only if)
+\((p_1 \leftrightarrow p_2 \leftrightarrow \cdots \leftrightarrow p_n) \leftrightarrow (p_1 \leftrightarrow p_2) \wedge (p_2 \rightarrow p_3) \wedge \cdots \wedge (p_n \rightarrow p_1)\)
+
+Counterexamples: To show that a statement of the form \(\forall xP(x)\) is false. 
+we only need to find a couterexample.
+
+Mistakes in proofs: Division by zero, Affirming the conclusion, Denying the hypothesis, Begging the question.
+
+
+\end{document}
+
+
+
